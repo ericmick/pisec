@@ -1,5 +1,6 @@
 {
   "dependencies" : {
+    "coffee-script" : "1.x.x",
     "stream-transcoder" : "0.x.x",
     "express" : "3.x.x"
   }
