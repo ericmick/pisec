@@ -13,7 +13,7 @@ Also, make sure Raspbian, Node.js, and npm are installed and up to date.
 sudo apt-get upgrade;
 sudo apt-get update
 wget http://nodejs.org/dist/v0.11.9/node-v0.11.9-linux-arm-pi.tar.gz
-tar -xvzf node-v0.10.2-linux-arm-pi.tar.gz
+tar -xvzf node-v0.11.9-linux-arm-pi.tar.gz
 NODE_JS_HOME=/home/pi/node-v0.10.2-linux-arm-pi
 PATH=$PATH:$NODE_JS_HOME/bin
 ```
