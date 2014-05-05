@@ -1,5 +1,6 @@
 {
   "name" : "pisec",
+  "version" : "0.0.1",
   "dependencies" : {
     "coffee-script" : "1.x.x",
     "stream-transcoder" : "0.x.x",
