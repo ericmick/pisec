@@ -16,7 +16,7 @@ cd ~/
 wget http://nodejs.org/dist/v0.10.24/node-v0.10.24-linux-arm-pi.tar.gz
 tar -xvzf node-v0.10.24/linux-arm-pi.tar.gz
 NODE_JS_HOME=~/node-v0.10.24-linux-arm-pi
-PATH=$PATH:$NODE_JS_HOME/bin
+PATH=$NODE_JS_HOME/bin:$PATH
 ```
 1. Install python-picamera (camera interface)
 ```
