@@ -5,7 +5,8 @@ app = express()
 camera = child_process.spawn('raspivid', ['-o', '-', '-t', '0'])
 camera.stderr.pipe process.stderr
 
-ffmpeg = child_process.spawn('avconv', ['-i', '-', 
+ffmpeg = child_process.spawn('ffmpeg', ['-i', '-',
+  '-movflags', 'frag_keyframes+empty_moov',
   '-f', 'mp4',
   '-y', '-'])
 ffmpeg.stderr.pipe process.stderr
