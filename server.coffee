@@ -1,14 +1,14 @@
-startRecording = require('child_process').spawn('python ./vid.py')
+child_process = require('child_process')
 express = require('express')
 app = express()
-transcoder = require('stream-transcoder')
-net = require('net')
+fs = require('fs')
+camera = child_process.spawn('raspistill', ['-o', '-', '-t', '100', '-w', '800', '-h', '600', '-s'])
 
-recordingProcess = startRecording()
 app.all '*', (req, res) ->
-  client = net.connect 8000, () ->
-    new Transcoder(client)
-      .videoCodec('h264')
-      .format('mp4')
-      .stream()
-      .pipe(res)
+  res.setHeader 'Content-Type', 'image/jpeg'
+  camera.stdout.pipe res
+  camera.kill 'SIGUSR1'
+  setTimeout () -> 
+    res.end()
+  , 1000
+app.listen(1337)

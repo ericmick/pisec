@@ -2,7 +2,7 @@
   "name" : "pisec",
   "version" : "0.0.1",
   "dependencies" : {
-    "coffee-script" : "1.x.x",
+    "coffee-script" : "*",
     "stream-transcoder" : "0.x.x",
     "express" : "3.x.x"
   }
