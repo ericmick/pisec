@@ -3,8 +3,16 @@ express = require('express')
 app = express()
 fs = require('fs')
 camera = child_process.spawn('raspivid', ['-o', '-', '-t', '0'])
+ffmpeg = child_process.spawn('ffmpeg', ['-i', '-', 
+  '-vcodec', 'copy', 
+  '-f', 'mp4', 
+  '-movflags', 'frag_keyframe+empty_moov'])
 
 app.all '*', (req, res) ->
-  res.setHeader 'Content-Type', 'video/mp4'
-  camera.stdout.pipe res
+  res.writeHead 200,
+    'Connection': 'keep-alive'
+    'Content-Type': 'video/mp4'
+    'Accept-Ranges': 'bytes'
+  camera.stdout.pipe ffmpeg.stdin
+  ffmpeg.stdout.pipe res
 app.listen(1337)
