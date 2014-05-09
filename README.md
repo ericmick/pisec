@@ -1,7 +1,7 @@
 #pisec
 This is a work in progress.  Watch if you'd like to know when I get this working.
 
-Pisec is a module for using the raspberr
+Pisec is a module for using the raspberry pi as a web-based security camera.
 
 ## setup
 Here's how to get started from a fresh install of Raspbian Wheezy (2014-01-07).
