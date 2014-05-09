@@ -7,7 +7,7 @@ camera.stderr.pipe process.stderr
 
 ffmpeg = child_process.spawn('avconv', ['-i', '-',
   '-f', 'video4linux2',
-  '-f', 'mpeg1video',
+  '-f', 'mp4',
   '-y', '-'])
 ffmpeg.stderr.pipe process.stderr
 camera.stdout.pipe ffmpeg.stdin
