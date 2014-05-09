@@ -13,6 +13,7 @@ ffmpeg = child_process.spawn('ffmpeg', ['-i', '-',
   '-bsf:v', 'dump_extra',
   '-y', '-'])
 
+app.use express.logger()
 app.all '*', (req, res) ->
   res.writeHead 200,
     'Connection': 'keep-alive'
