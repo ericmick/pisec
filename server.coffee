@@ -6,13 +6,8 @@ camera = child_process.spawn('raspivid', ['-o', '-', '-t', '0'])
 camera.stderr.pipe process.stderr
 
 ffmpeg = child_process.spawn('avconv', ['-i', '-', 
-  '-vcodec', 'copy', 
   '-f', 'mp4', 
-  '-movflags', 'frag_keyframe',
-  '-vsync', '1',
-  '-flags', 'global_header',
-  '-bsf:v', 'dump_extra',
-  '-y', '-'])
+  '-movflags', 'frag_keyframe'])
 ffmpeg.stderr.pipe process.stderr
 camera.stdout.pipe ffmpeg.stdin
 
