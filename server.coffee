@@ -7,7 +7,7 @@ camera.stderr.pipe process.stderr
 
 ffmpeg = child_process.spawn('avconv', ['-i', '-',
   '-f', 'video4linux2',
-  '-f', 'mp4',
+  '-f', 'flv',
   '-y', '-'])
 ffmpeg.stderr.pipe process.stderr
 camera.stdout.pipe ffmpeg.stdin
@@ -17,7 +17,7 @@ app.all '*', (req, res) ->
 
   res.writeHead 200,
     'Connection': 'keep-alive'
-    'Content-Type': 'video/mpeg'
+    'Content-Type': 'video/flv'
     'Accept-Ranges': 'bytes'
   
   ffmpeg.stdout.pipe res
