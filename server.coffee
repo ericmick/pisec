@@ -7,7 +7,8 @@ camera.stderr.pipe process.stderr
 
 ffmpeg = child_process.spawn('avconv', ['-i', '-', 
   '-f', 'mp4', 
-  '-movflags', 'frag_keyframe'])
+  '-movflags', 'frag_keyframe',
+  '-y', '-'])
 ffmpeg.stderr.pipe process.stderr
 camera.stdout.pipe ffmpeg.stdin
 
